@@ -81,14 +81,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Achref master
-                    fffffffff
-                    sarra
-                    achref now
-
-                        sarraaaaa hvjhn
-                        test git
-                    RAFIK NAW
+                SMART GUIDE TOURISTIQUE
 
                 <div class="links">
                     <a href="https://laravel.com/docs">Docs</a>
