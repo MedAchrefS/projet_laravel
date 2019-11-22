@@ -81,7 +81,9 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                SMART GUIDE TOURISTIQUE
+                    Achref master
+                    fffffffffffffffffffffffff
+                </div>
 
                 <div class="links">
                     <a href="https://laravel.com/docs">Docs</a>
