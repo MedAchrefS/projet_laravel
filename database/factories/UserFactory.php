@@ -25,3 +25,43 @@ $factory->define(User::class, function (Faker $faker) {
         'remember_token' => Str::random(10),
     ];
 });
+
+
+
+//Admin table
+$factory->define(App\admin::class, function (Faker\Generator $faker) {
+    return [
+        'role' => $faker->integer(),
+    ];
+});
+$factory->define(App\tourist::class, function (Faker\Generator $faker) {
+    return [
+        'role' => $faker->integer(),
+    ];
+});
+
+$factory->define(App\gallery::class, function (Faker $faker) {
+    return [
+        'gallery_name' => $faker->string(),
+        'description' => $faker->text(),
+        'photo' => $faker->string(),
+    ];
+});
+
+
+
+
+$factory->define(App\places::class, function (Faker $faker) {
+    return [
+        'place_name' => $faker->string(),
+
+    ];
+});
+
+$factory->define(App\gallery::class, function (Faker $faker) {
+    return [
+        'hotel_name' => $faker->string(),
+        'ville' => $faker->text(),
+        'num_room_availables' => $faker->integer(),
+    ];
+});
