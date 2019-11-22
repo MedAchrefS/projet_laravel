@@ -11,10 +11,8 @@ class PlacesTableSeeder extends Seeder
      */
     public function run()
     {
-        \App\places::truncate();
-
-        (new Faker\Generator)->seed(123);
-
-        factory(App\places::class, 50)->create();
+        factory(App\places::class, 10)->create()->each(function($places){
+            $places->save();
+            });
     }
 }

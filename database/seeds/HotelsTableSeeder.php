@@ -11,10 +11,9 @@ class HotelsTableSeeder extends Seeder
      */
     public function run()
     {
-        \App\hotels::truncate();
 
-        (new Faker\Generator)->seed(123);
-
-        factory(App\hotels::class, 50)->create();
+        factory(App\hotels::class, 10)->create()->each(function($hotels){
+        $hotels->save();
+        });
     }
 }

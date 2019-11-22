@@ -11,10 +11,8 @@ class GalleryTableSeeder extends Seeder
      */
     public function run()
     {
-        \App\gallery::truncate();
-
-        (new Faker\Generator)->seed(123);
-
-        factory(App\gallery::class, 50)->create();
+        factory(App\gallery::class, 10)->create()->each(function($gallery){
+            $gallery->save();
+            });
     }
 }

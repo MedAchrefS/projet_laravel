@@ -6,5 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class tourist extends Model
 {
-    //
+    protected $fillable = ['role'];
+
 }

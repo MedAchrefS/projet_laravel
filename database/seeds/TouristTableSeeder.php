@@ -11,10 +11,8 @@ class TouristTableSeeder extends Seeder
      */
     public function run()
     {
-        \App\tourist::truncate();
-
-        (new Faker\Generator)->seed(123);
-
-        factory(App\tourist::class, 50)->create();
+        factory(App\tourist::class, 10)->create()->each(function($tourist){
+            $tourist->save();
+            });
     }
 }

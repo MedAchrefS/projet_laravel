@@ -11,10 +11,9 @@ class UserTableSeeder extends Seeder
      */
     public function run()
     {
-        \App\User::truncate();
 
-        (new Faker\Generator)->seed(123);
-
-        factory(App\User::class, 50)->create();
+        factory(App\user::class, 10)->create()->each(function($user){
+        $user->save();
+        });
     }
 }

@@ -11,10 +11,8 @@ class AdminTableSeeder extends Seeder
      */
     public function run()
     {
-        \App\admin::truncate();
-
-        (new Faker\Generator)->seed(123);
-
-        factory(App\admin::class, 50)->create();
+        factory(App\admin::class, 10)->create()->each(function($admin){
+            $admin->save();
+            });
     }
 }
