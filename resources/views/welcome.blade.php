@@ -81,7 +81,11 @@
 
             <div class="content">
                 <div class="title m-b-md">
+<<<<<<< HEAD
                  The A Team rafik  sarra
+=======
+                 The A Team rafik nada
+>>>>>>> 56e48b231a0c95b98fc2274dfe92676f712eeb1c
                 </div>
 
 
