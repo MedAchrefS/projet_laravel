@@ -11,14 +11,20 @@
 |
 */
 
-Route::get('/', function () {
+Route::get('/dashboard', function () {
     return view('dashboard');
 });
-Route::get('/places.blade.php', function () {
-    return view('places');
-});
+Route::get('/', function () {
+    return view('welcome');
+});  
+    Auth::routes();
+Route::resource('places','PlacesController');
 
-Route::get('/map.blade.php', function () {
-    return view('map');
-});
 
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
