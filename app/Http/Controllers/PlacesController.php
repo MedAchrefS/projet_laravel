@@ -8,33 +8,58 @@ class PlacesController extends Controller
 {
     public function index()
     {
-        return Places::all();
+        $places = Places::latest()->paginate(5);
+  
+        return view('places.index',compact('places'))
+            ->with('i', (request()->input('page', 1) - 1) * 5);
     }
- 
-    public function show($id)
+    public function create()
     {
-        return Places::find($id);
+        return view('places.create');
     }
 
     public function store(Request $request)
     {
-        return Places::create($request->all());
-        
+        $request->validate([
+            'name' => 'required',
+            'Description' => 'required',
+        ]);
+  
+        Places::create($request->all());
+   
+        return redirect()->route('places.index')
+                        ->with('success','places created successfully.');
     }
 
-    public function update(Request $request, $id)
+    public function show(Places $place)
     {
-        $place = Places::findOrFail($id);
+        return view('places.show',compact('place'));
+    }
+
+    public function edit(Places $place)
+    {
+        return view('places.edit',compact('place'));
+    }
+
+    public function update(Request $request, Places $place)
+    {
+        $request->validate([
+            'name' => 'required',
+            'Description' => 'required',
+        ]);
+  
         $place->update($request->all());
-
-        return $place;
+  
+        return redirect()->route('places.index')
+                        ->with('success','Places updated successfully');
     }
 
-    public function delete(Request $request, $id)
+    public function destroy(Places $place)
     {
-        $place = Places::findOrFail($id);
         $place->delete();
-
-        return 204;
+  
+        return redirect()->route('places.index')
+                        ->with('success','place deleted successfully');
     }
+ 
 }

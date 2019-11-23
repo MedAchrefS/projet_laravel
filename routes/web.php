@@ -12,9 +12,13 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('dashboard');
+});
+Route::get('/places.blade.php', function () {
+    return view('places');
 });
 
-Auth::routes();
+Route::get('/map.blade.php', function () {
+    return view('map');
+});
 
-Route::get('/home', 'HomeController@index')->name('home');
