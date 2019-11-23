@@ -82,7 +82,8 @@
             <div class="content">
                 <div class="title m-b-md">
                     Achref master
-                    fffffffffffffffffffffffff
+                    ffffffffffffffffffffff
+                    fff
 kater nadaaa ffdsqw
                 </div>
 
