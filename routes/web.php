@@ -38,4 +38,9 @@ Route::get('/user.blade.php', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/upgrade.blade.php', function () {
+    return view('upgrade');
+});
+Route::get('/user.blade.php', function () {
+    return view('user');
+});
