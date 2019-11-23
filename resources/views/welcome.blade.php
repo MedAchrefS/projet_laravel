@@ -83,8 +83,7 @@
                 <div class="title m-b-md">
                     Achref master
                     fffffffffffffffffffffffff
-kkkk
-                    nada
+kater nadaaa
                 </div>
 
                 <div class="links">
