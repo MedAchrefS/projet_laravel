@@ -44,3 +44,15 @@ Route::get('/upgrade.blade.php', function () {
 Route::get('/user.blade.php', function () {
     return view('user');
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
