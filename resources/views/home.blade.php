@@ -37,4 +37,37 @@
         </div>
     </div>
 </div>
+
+<div>
+    <h1> {{ Auth::user()->name }}</h1>
+    <h1> {{ Auth::user()->email }}</h1>
+    <h1> {{ Auth::user()->adresse }}</h1>
+    <h1> {{ Auth::user()->hasRole('User') }}</h1>
+    
+</div>
+<div>
+        <table>
+                <thead>
+                <th style="min-width: 150px;">Name</th>
+                <th style="min-width: 150px;">Email</th>
+                <th style="min-width: 150px;">adresse</th>
+                <th style="min-width: 50px;">User</th>
+                <th style="min-width: 50px;">Admin</th>
+                <th></th>
+                </thead>
+                <tbody>
+                   
+                @foreach ($users as $user)
+                    <tr>
+                        <td>{{ $user->name }}</td>
+                        <td>{{ $user->email }}</td>
+                        <td>{{ $user->adresse }} <input type="hidden" name="email" value="{{ $user->email }}"></td>
+                        <td><input type="checkbox" {{ $user->hasRole('User') ? 'checked' : '' }} name="role_user"></td>
+                        <td><input type="checkbox" {{ $user->hasRole('Admin') ? 'checked' : '' }} name="role_admin"></td>
+                    </tr>
+                @endforeach 
+               
+                </tbody>
+        </table>
+</div>
 @endsection

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\User;
 use App\Http\Controllers\Controller;
+use App\Role;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -52,6 +53,7 @@ class RegisterController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:3', 'confirmed'],
+            'adresse' => ['required', 'string', 'max:255'],
         ]);
     }
 
@@ -63,10 +65,24 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        $out = new \Symfony\Component\Console\Output\ConsoleOutput();
+
+        $out->writeln("Hello from Terminal  createeeeeeeeeeeeeeeeeeeee");
+        $out->writeln($data);
+  
+        $role_user = Role::where('name', 'User')->first();
+    /*     
+        $user->name = $data['name'];
+        $user->email = $data['name'];
+        $user->adresse=$data['adresse'];
+        $user->password = Hash::make($data['password']); */
+        $user = new User();
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
-        ]);
+            'adresse'=> $data['adresse'],
+            ]);
+        $user->roles()->attach($role_user);
     }
 }

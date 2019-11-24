@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\User;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,6 +23,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $out = new \Symfony\Component\Console\Output\ConsoleOutput();
+
+        $out->writeln("Hello from Terminal");
+        $users = User::all();
+        return view('home',['users' => $users]);
     }
 }

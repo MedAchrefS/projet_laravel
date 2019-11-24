@@ -39,6 +39,21 @@
                             </div>
                         </div>
 
+
+
+                        <div class="form-group row">
+                                <label for="adresse" class="col-md-4 col-form-label text-md-right">adresse</label>
+    
+                                <div class="col-md-6">
+                                    <input id="adresse" type="text" class="form-control @error('adresse') is-invalid @enderror" name="adresse" value="{{ old('adresse') }}" required autocomplete="adresse">
+    
+                               
+                                </div>
+                            </div>
+
+
+
+
                         <div class="form-group row">
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
 
