@@ -21,9 +21,8 @@ Route::get('/', function () {
 Route::resource('places','PlacesController');
 
 
-Auth::routes();
-
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/admin/index', 'AdminController@index')->name('admin');
 
 Route::get('/tables.blade.php', function () {
     return view('tables');
@@ -35,6 +34,12 @@ Route::get('/upgrade.blade.php', function () {
 Route::get('/user.blade.php', function () {
     return view('user');
 });
+
+Route::get('/admin', function () {
+    return view('admin/index');
+}); 
+
+
 
 
 
