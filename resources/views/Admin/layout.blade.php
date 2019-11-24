@@ -29,17 +29,17 @@
         Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow"
     -->
       <div class="logo">
-        <a href="http://www.creative-tim.com" class="simple-text logo-mini">
+        <a href="{{ url('admin/index') }}" class="simple-text logo-mini">
           A
         </a>
-        <a href="http://www.creative-tim.com" class="simple-text logo-normal">
+        <a href="{{ url('admin/index') }}" class="simple-text logo-normal">
           The A Team
         </a>
       </div>
       <div class="sidebar-wrapper" id="sidebar-wrapper">
         <ul class="nav">
           <li class="active ">
-            <a href="/">
+            <a href="{{ url('admin/index') }}">
               <i class="now-ui-icons design_app"></i>
               <p>Home Page</p>
             </a>
