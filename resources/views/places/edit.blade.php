@@ -1,5 +1,8 @@
-@extends('layouts.app')
-  
+@if(Auth::user()->hasRole('Admin'))
+    @extends('Admin.layout')
+@elseif (Auth::user()->hasRole('User'))
+    @extends('layouts.app')
+@endif
 @section('content')
     <div class="row">
         <div class="col-lg-12 margin-tb">

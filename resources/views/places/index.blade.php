@@ -5,8 +5,11 @@
 
 @auth
    
-
-@extends('layouts.app')
+@if(Auth::user()->hasRole('Admin'))
+    @extends('Admin.layout')
+@elseif (Auth::user()->hasRole('User'))
+    @extends('layouts.app')
+@endif
 
 @section('content')
     <div class="row">
