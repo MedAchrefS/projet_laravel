@@ -68,21 +68,20 @@ class RegisterController extends Controller
         $out = new \Symfony\Component\Console\Output\ConsoleOutput();
 
         $out->writeln("Hello from Terminal  createeeeeeeeeeeeeeeeeeeee");
-        $out->writeln($data);
+       
   
-        $role_user = Role::where('name', 'User')->first();
-    /*     
-        $user->name = $data['name'];
-        $user->email = $data['name'];
-        $user->adresse=$data['adresse'];
-        $user->password = Hash::make($data['password']); */
         $user = new User();
-        return User::create([
+     
+        $user= User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
             'adresse'=> $data['adresse'],
             ]);
-        $user->roles()->attach($role_user);
+            $role_user = Role::where('name', 'User')->first();
+            $out->writeln($role_user);
+            $user->roles()->attach($role_user);
+            return $user;
+       
     }
 }
