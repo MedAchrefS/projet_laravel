@@ -81,7 +81,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                 The A Team rafik nada   sarra  ya nada
+                 The A Team rafik nada sarra batman ya nada
                 </div>
 
 
