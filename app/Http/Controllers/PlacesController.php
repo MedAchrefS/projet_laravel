@@ -25,7 +25,11 @@ class PlacesController extends Controller
             'Description' => 'required',
         ]);
   
-        Places::create($request->all());
+        $place=new Places([
+            'name' => $request->get('name'),
+            'Description' => $request->get('Description'),
+        ]);
+        $place->save();
    
         return redirect()->route('places.index')
                         ->with('success','places created successfully.');

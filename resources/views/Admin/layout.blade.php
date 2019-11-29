@@ -29,7 +29,7 @@
         Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow"
     -->
       <div class="logo">
-        <a href="{{ url('admin/index') }}" class="simple-text logo-mini">
+        <a href="{{ url('admin/index') }}" clas s="simple-text logo-mini">
           A
         </a>
         <a href="{{ url('admin/index') }}" class="simple-text logo-normal">
@@ -63,7 +63,7 @@
             </a>
           </li>
           <li>
-            <a href="./user.blade.php">
+            <a href="{{ url('usersManagement') }}">
               <i class="now-ui-icons users_single-02"></i>
               <p>User Profile</p>
             </a>

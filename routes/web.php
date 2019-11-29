@@ -19,7 +19,7 @@ Route::get('/', function () {
 });  
     Auth::routes();
 Route::resource('places','PlacesController');
-
+Route::resource('usersManagement','UserManagementController');
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/admin/index', 'AdminController@index')->name('admin');
