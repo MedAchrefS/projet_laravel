@@ -18,20 +18,28 @@
 
                     <script>
                         // initialize the map
-                        var map = L.map('map').setView([42.35, -71.08], 13);
-                      
-                        // load a tile layer
-                        L.tileLayer('http://tiles.mapc.org/basemap/{z}/{x}/{y}.png',
-                          {
-                            attribution: 'Tiles by <a href="http://mapc.org">MAPC</a>, Data by <a href="http://mass.gov/mgis">MassGIS</a>',
-                            maxZoom: 17,
-                            minZoom: 9
-                          }).addTo(map);
-                          var marker = L.marker([36.812010, 10.180035]).addTo(map);
+                        navigator.geolocation.getCurrentPosition(function(location) {
+                        var latlng = new L.LatLng(location.coords.latitude, location.coords.longitude);
+
+                        var mymap = L.map('map').setView(latlng, 14)
+                        L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+                            attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://mapbox.com">Mapbox</a>',
+                            maxZoom: 18,
+                            id: 'mapbox.streets',
+                            accessToken: 'pk.eyJ1IjoiYmJyb29rMTU0IiwiYSI6ImNpcXN3dnJrdDAwMGNmd250bjhvZXpnbWsifQ.Nf9Zkfchos577IanoKMoYQ'
+                        }).addTo(mymap);
+
+                        var marker = L.marker(latlng).addTo(mymap);
+                        });
                       
                           
                         </script>
                     
+                
+                
+                
+                
+                
                 </div>
             </div>
         </div>
@@ -71,3 +79,4 @@
         </table>
 </div>
 @endsection
+
