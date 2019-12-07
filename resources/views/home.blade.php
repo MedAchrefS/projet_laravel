@@ -17,22 +17,23 @@
                     <div id="map" style="height: 500px;"> achref</div>
 
                     <script>
-                        // initialize the map
-                        navigator.geolocation.getCurrentPosition(function(location) {
-                        var latlng = new L.LatLng(location.coords.latitude, location.coords.longitude);
 
-                        var mymap = L.map('map').setView(latlng, 14)
-                        L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
-                            attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://mapbox.com">Mapbox</a>',
-                            maxZoom: 18,
-                            id: 'mapbox.streets',
-                            accessToken: 'pk.eyJ1IjoiYmJyb29rMTU0IiwiYSI6ImNpcXN3dnJrdDAwMGNmd250bjhvZXpnbWsifQ.Nf9Zkfchos577IanoKMoYQ'
-                        }).addTo(mymap);
-
-                        var marker = L.marker(latlng).addTo(mymap);
-                        });
-                      
+                       var latlng ;
+                       navigator.geolocation.getCurrentPosition(function(location) {
+                        latlng = new L.LatLng(location.coords.latitude, location.coords.longitude);
+                        L.mapbox.accessToken = 'pk.eyJ1IjoiYWNocmVmLTU1IiwiYSI6ImNrM3ZkOGhxMDA1YzQza3A3NHVkdHh3OGoifQ.j4ABxIO5epUBXudt1FFPaQ';
+                            var map = L.mapbox.map('map')
+                                .setView(latlng, 14)
+                                .addLayer(L.mapbox.styleLayer('mapbox://styles/mapbox/streets-v11'));
+                            console.log(L);
+                            
+                            var marker = new L.Marker(latlng)
+                                            .addTo(map);
                           
+                       });
+
+
+                         
                         </script>
                     
                 

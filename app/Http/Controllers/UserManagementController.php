@@ -25,8 +25,36 @@ class UserManagementController extends Controller
 
     public function show(User $user)
     {
-        return view('UserManagement.show',compact('user'));
+        $out = new \Symfony\Component\Console\Output\ConsoleOutput();
+
+        $out->writeln($user->id);
+        return view('UserManagement.show',['user' => $user]);
     }
 
+    public function edit(User $user)
+    {
+        return view('UserManagement.edit',compact('user'));
+    }
+
+    public function update(Request $request, User $user)
+    {
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required',
+        ]);
+  
+        $user->update($request->all());
+  
+        return redirect()->route('UserManagement.index')
+                        ->with('success','user updated successfully');
+    }
+
+    public function destroy(User $user)
+    {
+        $user->delete();
+  
+        return redirect()->route('UserManagement.index')
+                        ->with('success','user deleted successfully');
+    }
     
 }

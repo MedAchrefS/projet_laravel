@@ -17,7 +17,7 @@
            <div class="card-header ">
              <h5 class="card-category">Users</h5>
              <div class="pull-right">
-                     <a class="btn btn-success" href=""> Create New User</a>
+                     <a class="btn btn-success" href="{{ route('usersManagement.create') }}"> Create New User</a>
                  </div>
            </div>
            <div class="card-body ">
@@ -47,14 +47,13 @@
 
                              
                              <td>
-                              <form action="" method="POST">
-                    
-                               <a class="btn btn-info" href="">Show</a>
-                               <a class="btn btn-primary" href="">Edit</a>
-                                  @csrf
-                                     @method('DELETE')
-                                  <button type="submit" class="btn btn-danger">Delete</button>
-                               </form>
+                              <form action="{{ route('usersManagement.destroy',$user->id) }}" method="POST">
+                       
+                                <a class="btn btn-info" href="{{ route('usersManagement.show',$user->id) }}">Show</a>
+                                <a class="btn btn-primary" href="{{ route('usersManagement.edit',$user->id) }}">Edit</a>
+                                   @csrf
+                                      @method('DELETE')
+                                   <button type="submit" class="btn btn-danger">Delete</button>
                              </td>
                          </tr>
                          @endforeach

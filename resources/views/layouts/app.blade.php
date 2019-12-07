@@ -14,9 +14,16 @@
     <script src="{{ asset('js/app.js') }}" ></script>
     <script src="{{ url('/') }}/js/app.js" ></script>
 
-    <script src="{{ asset('leaflet/leaflet.js') }}" ></script>
-    <script src="{{ url('/') }}/leaflet/leaflet.js" ></script>
+  {{--   <script src="{{ asset('leaflet/leaflet.js') }}" ></script>
+    <script src="{{ url('/') }}/leaflet/leaflet.js" ></script> --}}
 
+    <script src='https://api.mapbox.com/mapbox.js/v3.2.1/mapbox.js'></script>
+<link href='https://api.mapbox.com/mapbox.js/v3.2.1/mapbox.css' rel='stylesheet' />
+    <script src="{{ asset('assets/js/core/bootstrap.min.js') }}" ></script>
+
+    {{--   <script src="../assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
+     --}}
+      <script src="{{ asset('assets/js/plugins/perfect-scrollbar.jquery.min.js') }}" ></script>
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
