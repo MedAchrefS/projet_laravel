@@ -81,11 +81,29 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                 The A Team rafik nada sarra batman ya nada
+                 The A Team App
                 </div>
+                <h4 id="PlaceHistory">
+
+                </h4>
+                <br>
+                <h4 id="searchedPlaceTextCoordinates">
+
+                    </h4>
+    
 
 
             </div>
         </div>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script>
+        var searchedPlaceText = sessionStorage.getItem('searchedPlaceText');
+        var searchedPlaceTextCoordinates = sessionStorage.getItem('searchedPlaceTextCoordinates');
+        if(searchedPlaceText!=null)
+        document.getElementById("PlaceHistory").innerHTML = "your LAST SEARCHED PLACE is : " +searchedPlaceText;
+        if(searchedPlaceTextCoordinates!=null)
+        document.getElementById("searchedPlaceTextCoordinates").innerHTML = "your LAST SEARCHED PLACE coordinates are : " +searchedPlaceTextCoordinates;
+
+        </script>
     </body>
 </html>
