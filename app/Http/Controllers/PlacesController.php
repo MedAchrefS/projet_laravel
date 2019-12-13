@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 use App\Places;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\File;
 
 class PlacesController extends Controller
 {
@@ -24,10 +26,24 @@ class PlacesController extends Controller
             'name' => 'required',
             'Description' => 'required',
         ]);
-  
+        $cover = $request->file('bookcover');
+        $extension = $cover->getClientOriginalExtension();
+        Storage::disk('images')->put($cover->getFilename().'.'.$extension,  File::get($cover));
+    
+        $out = new \Symfony\Component\Console\Output\ConsoleOutput();
+
+        $out->writeln(gettype($cover->getClientMimeType()));
+        
+        $extention_file=$cover->getClientMimeType();
+        $fileName=$cover->getFilename().'.'.$extension;
+        $OriginalFilName=$cover->getClientOriginalName();
+
         $place=new Places([
             'name' => $request->get('name'),
             'Description' => $request->get('Description'),
+            'filename'=> $fileName,
+            'mime' => $extention_file,
+            'original_filename'=>$OriginalFilName
         ]);
         $place->save();
    

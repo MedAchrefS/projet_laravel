@@ -6,5 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class places extends Model
 {
-    protected $fillable = ['name','Description'];
+    protected $fillable = ['name','Description','filename','mime','original_filename'];
 }

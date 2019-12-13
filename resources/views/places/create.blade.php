@@ -40,7 +40,7 @@
                     </div>
                 @endif
                    
-                <form action="{{ route('places.store') }}" method="POST">
+                <form action="{{ route('places.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                   
                      <div class="row">
@@ -55,6 +55,14 @@
                                 <strong>Description:</strong>
                                 <textarea class="form-control" style="height:150px" name="Description" placeholder="Description"></textarea>
                             </div>
+                        </div>
+                    
+                    <div class="col-xs-12 col-sm-12 col-md-12">
+
+                        <div class="form-group">
+                            <label for="author" class="btn btn-danger">select a image  </label><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                            <input  style="float: right;background-color: aquamarine;" type="file" class="form-control-file" name="bookcover">
+                          </div>
                         </div>
                         <div class="col-xs-12 col-sm-12 col-md-12 text-center">
                                 <button type="submit" class="btn btn-success">Submit</button>

@@ -28,7 +28,10 @@
                          <tr>
                          <th>No</th>
                          <th>Name</th>
+                        
+
                          <th>Details</th>
+                         <th>image</th>
                          <th width="280px">Action</th>
                         </tr>
                             @foreach ($places as $place)
@@ -36,6 +39,7 @@
                                 <td>{{ ++$i }}</td>
                                 <td>{{ $place->name }}</td>
                                 <td>{{ $place->Description }}</td>
+                                <td> <img style="max-width: 50px;max-height: 50px;" src= "<?php echo asset("storage/app/public/images/turkey/$place->filename")?>" alt="Card image cap"> </td>
                                 <td>
                                  <form action="{{ route('places.destroy',$place->id) }}" method="POST">
                        
