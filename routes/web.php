@@ -16,7 +16,7 @@ Route::get('/dashboard', function () {
 });
 Route::get('/', function () {
     return view('welcome');
-});  
+});
     Auth::routes();
 Route::resource('places','PlacesController');
 Route::resource('usersManagement','UserManagementController');
@@ -37,8 +37,16 @@ Route::get('/user.blade.php', function () {
 
 Route::get('/admin', function () {
     return view('admin/index');
-}); 
-
+});
+Route::get('/blog.blade.php', function () {
+    return view('blog');
+});
+Route::get('/gallery.blade.php', function () {
+    return view('gallery');
+});
+Route::get('/contact.blade.php', function () {
+    return view('contact');
+});
 
 
 
