@@ -11,6 +11,7 @@
 |
 */
 
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 });
@@ -49,6 +50,8 @@ Route::get('/contact.blade.php', function () {
 });
 
 
+Route::get('contact', 'contactController@contact')->name('contact');
+Route::post('contact', 'contactController@contactMessage')->name('contactMessage');
 
 
 

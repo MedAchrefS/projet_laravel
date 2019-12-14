@@ -96,27 +96,48 @@ Smartphone Compatible web template, free web designs for Nokia, Samsung, LG, Son
 						  </div>
 					</div>
 					   <div class="col-md-6 contact-grid">
-						    <form>
-									<div class="styled-input wow slideInUp animated animated" data-wow-delay=".5s">
-									  <input type="text" required />
-									  <label>Name</label>
-									  <span></span> </div>
-									<div class="styled-input wow slideInUp animated animated" data-wow-delay=".5s">
-									  <input type="email" required />
-									  <label>Email</label>
-									  <span></span> </div>
-									<div class="styled-input wow slideInUp animated animated" data-wow-delay=".5s">
-									  <input type="tel" required />
-									  <label>Phone</label>
-									  <span></span> </div>
-									<div class="styled-input wide wow slideInUp animated animated" data-wow-delay=".5s">
-									  <textarea required></textarea>
-									  <label>Message</label>
-									  <span></span> </div>
-										<div class="send wow shake animated animated" data-wow-delay=".5s">
-											<input type="submit" value="Send" >
-										</div>
-						     </form>
+                        @if (session('successContactMail'))
+                        <div class="alert alert-success alert-dismissible fade show">
+                            <button type="button" class="close" data-dismiss="alert">&times;</button>
+                            {{ session('successContactMail') }}
+                        </div>
+                        <br>
+                    @else
+                        <form action="{{ route('contactMessage') }}" method="post">
+                            @csrf
+                            <div class="form-group">
+                                <label for="name">Name</label>
+                            <input type="text" name="name" id="name" class="form-control" value="{{ old('name') }}" placeholder="Name">
+                                @error('name')
+                                    <p class="text-danger">{{ $message }}</p>
+                                @enderror
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" name="email" id="email" class="form-control" value="{{ old('email') }}" placeholder=" email ">
+                                @error('email')
+                                    <p class="text-danger">{{ $message }}</p>
+                                @enderror
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">phone</label>
+                                <input type="text" name="phone" id="phone" class="form-control" value="{{ old('phone') }}" placeholder="phone">
+                                @error('phone')
+                                    <p class="text-danger">{{ $message }}</p>
+                                @enderror
+                            </div>
+                            <div class="form-group">
+                                <label for="nom">Message</label>
+                                <textarea name="message" id="message" class="form-control" cols="30" rows="10">{{ old('message') }}</textarea>
+                                @error('message')
+                                    <p class="text-danger">{{ $message }}</p>
+                                @enderror
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary">Envoyer</button>
+                            </div>
+                        </form>
+                    @endif
 					   </div>
 						<div class="clearfix"> </div>
 			      </div>
