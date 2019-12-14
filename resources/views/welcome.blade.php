@@ -1,5 +1,5 @@
 
-<!DOCTYPE HTML>
+
 <html>
 <head>
 <title>Travel Home</title>
@@ -313,7 +313,10 @@ Smartphone Compatible web template, free web designs for Nokia, Samsung, LG, Son
 
 
 					</div>
+<<<<<<< HEAD
 					<div class="col-md-4 adrs-left adrs-right wow fadeInUp animated animated" data-wow-delay=".5s">
+=======
+>>>>>>> 612ca95026969f1b4784fe19be02f73cc418cc25
 
 					<div class="clearfix"></div>
 				</div>
