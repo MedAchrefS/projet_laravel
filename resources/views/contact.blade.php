@@ -157,7 +157,7 @@ Smartphone Compatible web template, free web designs for Nokia, Samsung, LG, Son
                 <h4 id="PlaceHistory"></h4>
                 <br>
                 <h4 id="searchedPlaceTextCoordinates"></h4>
-
+H4  HHHHHHHHHHHHHHHHHHHHHH
 
 
             </div>
